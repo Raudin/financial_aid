@@ -1,0 +1,257 @@
+/* responsive navigation */
+
+/* Navigation */
+nav {
+  /* position: absolute;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%); */
+  width: 100%;
+  z-index: 3;
+  font-size: 16px;
+  transition: padding-top 0.3s ease-out;
+  display: flex;
+  /* align-items: center; */
+  flex-wrap: wrap;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  background: transparent;
+  max-width: 1600px;
+  margin: 0 auto;
+  /* padding: 10px 0; */
+  padding-top: 25px;
+  /* background: linear-gradient(to bottom, #011c39, transparent); */
+  /* background: var(--nrc-blue); */
+  /* overflow: hidden; */
+}
+
+nav.gradient {
+  padding-top: 5px;
+  /* background-color: #011c39; */
+}
+
+nav.shrink-nav {
+  top: 0;
+  background: white;
+  border-bottom: 1px solid #67848d69;
+}
+
+nav .logo {
+  color: white;
+  /* height: 60px; */
+  padding: 0 25px;
+  text-align: center;
+  box-sizing: border-box;
+  float: left;
+  text-decoration: none;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+nav .logo h1 a {
+  color: black;
+}
+
+nav .logo h1 a:hover {
+  color: var(--primary-col);
+}
+
+nav .logo span a {
+  color: grey;
+}
+
+nav .logo span a:hover {
+  color: black;
+}
+
+nav .logo h1 {
+  font-size: 32px;
+  font-family: "Lexend", sans-serif;
+  margin: 0;
+  line-height: unset;
+}
+nav .logo span {
+  font-family: "Abel", sans-serif;
+  display: block;
+
+  margin-left: 50px;
+
+  color: grey;
+}
+
+nav .logo img{
+  height: 50px;
+  width: unset;
+}
+
+.nav-links {
+  /* float: right; */
+  flex: auto;
+  margin-right: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+.nav-links ul {
+  display: flex;
+}
+.nav-links ul li {
+  list-style: none;
+  margin-right: 1rem;
+}
+.nav-links ul li a {
+  display: block;
+  text-decoration: none;
+  color: white;
+  position: relative;
+  padding: 5px 20px;
+}
+
+.nav-links ul li a.active {
+  background: var(--nrc-orange);
+  border-radius: 50px;
+}
+
+.nav-links ul li a.active:hover {
+  color: white;
+}
+
+.nav-links ul li a:hover {
+  color: var(--nrc-orange);
+}
+
+.nav-links button{
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  color: #edf0f1;
+  text-decoration: none;
+
+  /* margin-left: 20px; */
+  padding: 7px 20px;
+  /* background-color: #1DA1F1; */
+  border: none;
+  border-radius: 50px;
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+}
+
+.nav-links button:hover{
+  /* background-color: rgb(59, 180, 74, 0.8); */
+}
+
+/* Case specific addition */
+nav .bg {
+  filter: grayscale(100%);
+  opacity: 0.2;
+}
+
+@media (max-width: 768px) {
+  nav{
+    /* padding: 0; */
+    /* transition: none; */
+  }
+  
+  nav.active {
+    height: auto;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transform: none;
+    background: rgba(0, 0, 0, 0.559);
+  }
+
+  nav.active::before {
+    content: "";
+    position: absolute;
+    top: 60px;
+    left: 0;
+    height: calc(100vh - 60px);
+    width: 100vw;
+    background: rgba(0, 0, 0, 0.493);
+    z-index: -1;
+  }
+
+  nav .logo::before {
+    height: 70px;
+  }
+
+  .menu-toggle {
+    position: absolute;
+    /* top: 10px; */
+    right: 25px;
+    /* transform: translateY(-50%); */
+    display: flex;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    /* background: rgb(29, 161, 241, 0.2); */
+    cursor: pointer;
+    font-size: 30px;
+    color: white;
+  }
+  .menu-toggle:before {
+    content: "\f0c9";
+  }
+  .menu-toggle.active:before {
+    content: "\f00d";
+  }
+  .nav-links {
+    display: none;
+    background: white;
+    margin-right: 0;
+  }
+
+  .nav-links ul {
+
+  }
+
+  .nav-links ul li {
+    margin: 0;
+  }
+  .nav-links ul li a {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+    /* border-bottom: 2px solid transparent; */
+    position: relative;
+    padding: 10px 20px;
+    /* text-align: center; */
+  }
+
+  .nav-links ul li.active {
+    background: var(--primary-dark-col);
+    border-bottom: unset;
+    color: #fff;
+    /* transition: 0.5s; */
+  }
+
+  .nav-links ul li a.active {
+    color: white;
+    border-radius: 0;
+  }
+
+  .nav-links ul li:hover a::after {
+    content: unset;
+  }
+
+  .nav-links.active {
+    display: block;
+    width: 100%;
+  }
+  .nav-links.active ul {
+    display: block;
+  }
+
+  .nav-links button{
+    display: inline-block;
+    margin: auto;
+    width: 100%;
+    border-radius: 0;
+    text-align: left;
+  }
+}

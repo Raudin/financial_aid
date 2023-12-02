@@ -1,0 +1,47 @@
+<nav>
+    <!-- <div class="bg">
+        <img src="static/kitukizuri/img/ingenious-bg.png" alt="" />
+    </div> -->
+    <a href="{% url 'scholarship-categories'%}" class="logo">
+        <h3>Scholarship</h3>
+        <!-- <img src="static/img/ingenious.png" alt=""> -->
+    </a>
+    <div class="fas menu-toggle"></div>
+    <div class="nav-links">
+    <ul>
+        <li><a href="/">HOME</a></li>
+        <li><a href="/about">ABOUT</a></li>
+        <li><a href="{% url 'profile'%}">PROFILE</a></li>
+    <!-- <li><a href="#">CONTACT</a></li>-->
+    </ul>
+    <input type="checkbox" id="theme-switch">
+    <label for="theme-switch" class="switch">
+        <div class="toggle"></div>
+        <div class="names">
+            <p class="light">Light</p>
+            <p class="dark">Dark</p>
+        </div>
+    </label>
+    <!-- <a class="cta" href="/test/donate.html"><button>Donate</button></a> -->
+    </div>
+</nav>
+
+<div class="wrapper">
+    <div style="flex: 50%; display: flex; justify-content: center;">
+        <div style="border-radius: 10px; max-width: 600px;" class="xs-margin-top-10">
+            <div style="padding: 30px; color: white; border-radius: 10px; position: relative; z-index: 1;">
+                <div class="bg" style="opacity: 0.2">
+                    <img src="static/img/bg.png" style="object-fit: contain;" alt="">
+                </div>
+                <h2 style="color: #1DA1F1; margin-bottom: 10px;">WE ARE HERE TO HELP</h2>
+                <p>Let's get this over with already. You are looking for help and we are lookinng to help.
+                    Great!
+                    So take a look down below for opportunties you would be interested in and... <br>
+                    APPLY for it.</p>
+            </div>
+        </div>
+    </div>
+    <div class="xs-hidden" style="flex: 50%;">
+
+    </div>
+</div>

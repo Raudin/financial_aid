@@ -1,0 +1,249 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="static/ingenious/css/fontawesome-free-5.15.4-web/css/all.css">
+
+    <link rel="stylesheet" href="{% static 'ingenious/css/fontawesome-free-5.15.4-web/css/all.css' %}">
+
+    <link rel="stylesheet" href="{% static 'ingenious/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'ingenious/css/navigation.css' %}">
+    <link rel="stylesheet" href="{% static 'ingenious/css/theme-switch.css' %}">
+    <link rel="stylesheet" href="{% static 'ingenious/css/buttons.css' %}">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+         body{
+            font-family: var(--text-font), sans-serif;
+            /* background: #414141; */
+            background-color: var(--bg-color);
+            color: var(--font-color);
+        }
+
+        .btn-solid.red{
+            border: 1px solid red;
+            background: red;
+        }
+
+        .btn-solid.red:hover{
+            background: white;
+            color: red;
+        }
+
+        .big-container{
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .small-container{
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .nav-links.active {
+            background: var(--bg-color);
+            color: var(--font-color);
+        }
+
+        .nav-links ul li a {
+            font-family: var(--title-font);
+        }
+
+        header {
+            height: 20vh;
+            width: 100%;
+            background: url('/static/ingenious/img/clarisse-meyer-jKU2NneZAbI-unsplash.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        header .wrapper{
+            height: 100%;
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.661);
+        }
+
+        header h2{
+            font-family: var(--title-font), sans-serif;
+        }
+        
+        .card {
+            display: flex;
+            flex-wrap: wrap;
+            min-height: 50vh;
+            margin-top: 30px;
+        }
+
+        .card .left {
+            flex: 70%;
+            padding: 20px;
+            /* border: 1px solid green; */
+            border-right: none;
+            border-bottom: none;
+            border-radius: 10px 0 0 0;
+        }
+
+        .card .left h1 {
+            font-family: 'Abel',  sans-serif;
+        }
+
+        .card .left .details {
+            font-family: var(--title-font), sans-serif;
+            padding-bottom: 10px;
+            border-bottom: 1px solid green;
+            margin-top: 10px;
+            margin-bottom: 30px;
+        }
+
+        .card .left .details i{
+            background: var(--card-bg-color);
+            color: var(--card-font-color);
+            height: 30px;
+            width: 30px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .card .left p {
+
+        }
+
+        .card .right {
+            flex: 30%;
+            padding: 20px;
+            background: var(--card-bg-color);
+            color: var(--card-font-color);
+            box-shadow: 0 5px 14px rgba(0,0,0,0.2);
+            border-radius: 30px 0;
+        }
+
+        .card .right .details div{
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+
+        .card .right .details div span{
+            font-family: var(--title-font), sans-serif;
+        }
+
+        .card .right .details div span.open {
+            color: rgb(0, 128, 0);
+        }
+
+        .card .right .details div span.closed{
+            color: rgb(255, 0, 0);
+        }
+
+        @media only screen and (min-width: 768px) {
+            .card {
+                margin-top: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="big-container" style="padding: 0; ">
+        <header>
+            <!-- navbar -->
+            <nav>
+                <!-- <div class="bg">
+                    <img src="static/kitukizuri/img/ingenious-bg.png" alt="" />
+                </div> -->
+                <a href="{% url 'aid:scholarship-categories'%}" class="logo">
+                    <h3>Scholarship</h3>
+                    <!-- <img src="static/img/ingenious.png" alt=""> -->
+                </a>
+                <div class="fas menu-toggle"></div>
+                <div class="nav-links">
+                <ul>
+                    <li><a href="/">HOME</a></li>
+                    {% comment %} <li><a href="/about">ABOUT</a></li> {% endcomment %}
+                    <li><a href="{% url 'profile'%}">PROFILE</a></li>
+<!--                    <li><a href="#">CONTACT</a></li>-->
+                </ul>
+                <input type="checkbox" id="theme-switch">
+                <label for="theme-switch" class="switch">
+                    <div class="toggle"></div>
+                    <div class="names">
+                        <p class="light">Light</p>
+                        <p class="dark">Dark</p>
+                    </div>
+                </label>
+                <!-- <a class="cta" href="/test/donate.html"><button>Donate</button></a> -->
+                </div>
+            </nav>
+            <!-- end of navbar -->
+        </header>
+    </div>
+    <div class="small-container">
+        <div class="card">
+            <div class="left">
+                <h1>{{scholarship.title}}</h1>
+                <div class="details">
+                    <div style="display: flex; align-items: center;">
+                        <i class="fas fa-university"></i>
+                        {{scholarship.institution}}
+                    </div>
+                </div>
+                <p>{{scholarship.description}}</p>
+            </div>
+            <form method="POST" class="right">
+                {% csrf_token %}
+                <div class="details">
+                    <div>
+                        <h3>STATUS</h3>
+                        <span class="open">{{scholarship.status}}</span>
+                    </div>
+                    <div>
+                        <h3>PUBLISHED</h3>
+                        <span>{{scholarship.date_posted}}</span>
+                    </div>
+                    {% if application %}
+                    <div>
+                        <h3>APPLIED</h3>
+                        <span>{{application.date_posted}}</span>
+                    </div>
+                    {% endif %}
+                </div>
+                <div style="margin-top: 30px;">
+                    {% if application %}
+                    <button class="btn-solid red" style="width: 100%; font-size: 18px;" {% if user.is_staff %}disabled{% endif %}>
+                        cancel
+                    </button>
+                    {% else %}
+                    <button class="btn-solid" style="width: 100%; font-size: 18px;" {% if user.is_staff %}disabled{% endif %}>
+                        apply
+                    </button>
+                    {% endif %}
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="{% static 'ingenious/js/main.js' %}"></script>
+    <script src="{% static 'ingenious/js/theme-switch.js' %}"></script>
+</body>
+</html>

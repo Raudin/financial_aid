@@ -1,0 +1,302 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="{% static 'ingenious/css/fontawesome-free-5.15.4-web/css/all.css' %}">
+
+    <link rel="stylesheet" href="{% static 'ingenious/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'ingenious/css/navigation.css' %}">
+    <link rel="stylesheet" href="{% static 'ingenious/css/theme-switch.css' %}">
+    <link rel="stylesheet" href="{% static 'ingenious/css/buttons.css' %}">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            font-family: var(--text-font), sans-serif;
+            /* background: #414141; */
+            background-color: var(--bg-color);
+            color: var(--font-color);
+        }
+
+        [data-theme="dark"] .light-visible{
+            display: none;
+        }
+
+        .dark-visible {
+            display: none;
+        }
+        [data-theme="dark"] .dark-visible{
+            display: block;
+        }
+        
+        .big-container{
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .container{
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .small-container{
+            max-width: 1080px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .nav-links.active {
+            background: var(--bg-color);
+            color: var(--font-color);
+        }
+
+        .nav-links ul li a {
+            font-family: var(--title-font);
+        }
+
+        header {
+            height: 40vh;
+            width: 100%;
+            background: url('/static/ingenious/img/clarisse-meyer-jKU2NneZAbI-unsplash.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        header .wrapper{
+            height: 100%;
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.661);
+        }
+
+        header h2{
+            font-family: var(--title-font), sans-serif;
+        }
+    
+        .item-list{
+
+        }
+
+        .item-list .item{
+            background: var(--card-bg-color);
+            box-shadow: 0 5px 14px rgba(0,0,0,0.2);
+            border-radius: 30px 0;
+            margin: 20px 0;
+        }
+
+        .item-list .item a{
+            display: block;
+            padding: 20px;
+            color: var(--card-font-color);
+        }
+
+        .item-list .item:hover a{
+            color: rgb(133, 133, 133);
+        }
+
+        .item-list .item h3{
+            margin-bottom: 7px;
+        }
+
+        .item-list .item .details {
+            font-family: var(--title-font), sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .item-list .item .details i{
+            background: var(--card-font-color);
+            color: var(--card-bg-color);
+            height: 25px;
+            width: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .item-list .item span{
+            font-family: 'Abel', sans-serif;
+            border: 1px solid grey;
+            border-radius: 30px;
+            padding: 0 10px;
+        }
+
+        .item-list .item span.open{
+            color: rgb(0, 128, 0);
+            border-color: rgb(0, 128, 0);
+        }
+
+        .item-list .item span.closed{
+            color: rgb(255, 0, 0);
+            border-color: rgb(255, 0, 0);
+        }
+
+        @media (max-width: 768px) {
+            .xs-hidden {
+                display: none !important;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="big-container" style="padding: 0; ">
+        <header>
+            <!-- navbar -->
+            <nav>
+                <!-- <div class="bg">
+                    <img src="static/kitukizuri/img/ingenious-bg.png" alt="" />
+                </div> -->
+                <a href="{% url 'aid:scholarship-categories'%}" class="logo">
+                    <h3>Scholarship</h3>
+                    <!-- <img src="static/img/ingenious.png" alt=""> -->
+                </a>
+                <div class="fas menu-toggle"></div>
+                <div class="nav-links">
+                <ul>
+                    <li><a href="/">HOME</a></li>
+                    {% comment %} <li><a href="/about">ABOUT</a></li> {% endcomment %}
+                    <li><a href="{% url 'profile'%}">PROFILE</a></li>
+<!--                    <li><a href="#">CONTACT</a></li>-->
+                </ul>
+                <input type="checkbox" id="theme-switch">
+                <label for="theme-switch" class="switch">
+                    <div class="toggle"></div>
+                    <div class="names">
+                        <p class="light">Light</p>
+                        <p class="dark">Dark</p>
+                    </div>
+                </label>
+                <!-- <a class="cta" href="/test/donate.html"><button>Donate</button></a> -->
+                </div>
+            </nav>
+            <!-- end of navbar -->
+            <div class="wrapper">
+                <div style="flex: 50%; display: flex; justify-content: center;">
+                    <div style="border-radius: 10px; max-width: 600px;" class="xs-margin-top-10">
+                        <div style="padding: 30px; color: white; border-radius: 10px; position: relative; z-index: 1;">
+                            <div class="bg" style="opacity: 0.2">
+                                <img src="static/img/bg.png" style="object-fit: contain;" alt="">
+                            </div>
+                            <h2 style="color: #1DA1F1; margin-bottom: 10px; text-transform: uppercase;">{{category.title}}</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="xs-hidden" style="flex: 50%;">
+
+                </div>
+            </div>
+        </header>
+    </div>
+    <div class="small-container">
+        <ul class="item-list">
+            {% for scholarship in scholarships %}
+            <li class="item">
+                <a href="{% url 'aid:scholarship-item' category.id scholarship.id %}">
+                    <h3>{{scholarship.title}}</h3>
+                    <div class="details">
+                        <div>
+                            <span class="open">
+                                {{scholarship.status}}
+                            </span>
+                        </div>
+                        <div style="display: flex; align-items: center; margin-right: 10px;">
+                            <i class="fas fa-university"></i>
+                            {{scholarship.institution}}
+                        </div>
+                    </div>
+                </a>
+            </li>
+            {% endfor %}
+<!--            <li class="item">-->
+<!--                <a href="item.html">-->
+<!--                    <h3>Some random scholarship from I do not know where</h3>-->
+<!--                    <div class="details">-->
+<!--                        <div>-->
+<!--                            <span class="closed">-->
+<!--                                CLOSED-->
+<!--                            </span>-->
+<!--                        </div>-->
+<!--                        <div style="display: flex; align-items: center; margin-right: 10px;">-->
+<!--                            <i class="fas fa-university"></i>-->
+<!--                            University of Nairobi-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li class="item">-->
+<!--                <a href="item.html">-->
+<!--                    <h3>Some random scholarship from I do not know where</h3>-->
+<!--                    <div class="details">-->
+<!--                        <div>-->
+<!--                            <span class="open">-->
+<!--                                OPEN-->
+<!--                            </span>-->
+<!--                        </div>-->
+<!--                        <div style="display: flex; align-items: center; margin-right: 10px;">-->
+<!--                            <i class="fas fa-university"></i>-->
+<!--                            University of Nairobi-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li class="item">-->
+<!--                <a href="item.html">-->
+<!--                    <h3>Some random scholarship from I do not know where</h3>-->
+<!--                    <div class="details">-->
+<!--                        <div>-->
+<!--                            <span class="open">-->
+<!--                                OPEN-->
+<!--                            </span>-->
+<!--                        </div>-->
+<!--                        <div style="display: flex; align-items: center; margin-right: 10px;">-->
+<!--                            <i class="fas fa-university"></i>-->
+<!--                            University of Nairobi-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </a>-->
+<!--            </li>-->
+<!--            <li class="item">-->
+<!--                <a href="item.html">-->
+<!--                    <h3>Some random scholarship from I do not know where</h3>-->
+<!--                    <div class="details">-->
+<!--                        <div>-->
+<!--                            <span class="open">-->
+<!--                                OPEN-->
+<!--                            </span>-->
+<!--                        </div>-->
+<!--                        <div style="display: flex; align-items: center; margin-right: 10px;">-->
+<!--                            <i class="fas fa-university"></i>-->
+<!--                            University of Nairobi-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </a>-->
+<!--            </li>-->
+        </ul>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script src="{% static 'ingenious/js/main.js' %}"></script>
+    <script src="{% static 'ingenious/js/theme-switch.js' %}"></script>
+</body>
+</html>

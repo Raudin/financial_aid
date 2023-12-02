@@ -1,0 +1,86 @@
+        /* theme-switch */
+        label {
+            display: block;
+            margin: 10px 20px;
+        }
+        label, .toggle {
+            height: 30px;
+            border-radius: 100px;
+        }
+        label {
+            width: 100px;
+            background-color: rgba(0,0,0,.1);
+            border-radius: 100px;
+            position: relative;
+            /* margin: 1.8rem 0 4rem 0;  */
+            cursor: pointer;
+        }
+        .toggle {
+            position: absolute;
+            width: 50%;
+            background-color: #fff;
+            box-shadow: 0 2px 15px rgba(0,0,0,.15);
+            transition: transform .3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+        .names {
+            height: 100%;
+            font-size: 90%;
+            font-weight: bolder;
+            width: 80%;
+            margin-left: 10%;
+            margin-top: .5%;
+            position: absolute;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            user-select: none;
+        }
+        .dark {
+            opacity: .5;
+            color: white;
+        }
+        .mark {
+            border-radius: 100px;
+            background-color: black;
+        }
+        .mark {
+            width: 7%;
+            margin: auto;
+            position: relative;
+            height: .25rem;
+        }
+        .mark::before {
+            content: '';
+            position: absolute;
+            width: .25rem;
+            height: 100%;
+            left: -70%;
+            opacity: .15;
+            background-color: inherit;
+        }
+        .mark::after {
+            content: '';
+            position: absolute;
+            width: .25rem;
+            height: 100%;
+            right: -70%;
+            opacity: .15;
+            background-color: inherit;
+        }
+
+        /* -------- Switch Styles ------------*/
+        #theme-switch {
+            display: none;
+        }
+        /* Toggle */
+        [data-theme="dark"] .switch .toggle{
+            transform: translateX(100%);
+            background-color: #34323D;
+        }
+        [data-theme="dark"] .switch .dark{
+            opacity: 1;
+        }
+        [data-theme="dark"] .switch .light{
+            opacity: .5;
+        }
+        /* END OF theme-switch */

@@ -1,0 +1,45 @@
+@import url("typography.css");
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --title-font: "Raleway";
+  --text-font: "Abel";
+  --primary-color: #302AE6;
+  --secondary-color: #536390;
+  --font-color: #424242;
+  --bg-color: #fff;
+  --heading-color: #292922;
+
+  --card-bg-color: #222222;
+  --card-font-color: white;
+  --logo-image: "Mekoni Logo white.png"
+}
+
+[data-theme="dark"] {
+  --primary-color: #9A97F3;
+  --secondary-color: #818cab;
+  --font-color: #e1e1ff;
+  --bg-color: #222222;
+  --card-color: #161625;
+  --heading-color: #818cab;
+
+  --card-bg-color: white;
+  --card-font-color: black;
+  --logo-image: "Mekoni Logo png.png"
+
+}
+
+/* General */
+
+a {
+  text-decoration: none;
+}
+
+ul {
+  list-style: none;
+}

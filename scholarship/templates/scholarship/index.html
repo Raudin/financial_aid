@@ -1,0 +1,301 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="{% static 'ingenious/css/fontawesome-free-5.15.4-web/css/all.css' %}">
+
+    <link rel="stylesheet" href="{% static 'ingenious/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'ingenious/css/navigation.css' %}">
+    <link rel="stylesheet" href="{% static 'ingenious/css/theme-switch.css' %}">
+    <link rel="stylesheet" href="{% static 'ingenious/css/buttons.css' %}">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Raleway&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Abel&display=swap');
+
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body{
+            font-family: var(--text-font), sans-serif;
+            /* background: #414141; */
+            background-color: var(--bg-color);
+            color: var(--font-color);
+        }
+
+        [data-theme="dark"] .light-visible{
+            display: none;
+        }
+
+        .dark-visible {
+            display: none;
+        }
+        [data-theme="dark"] .dark-visible{
+            display: block;
+        }
+        
+        .big-container{
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .container{
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .small-container{
+            {% comment %} max-width: 1080px; {% endcomment %}
+            margin: 0 auto;
+            padding: 0 1.5rem;
+        }
+
+        .nav-links.active {
+            background: var(--bg-color);
+            color: var(--font-color);
+        }
+
+        .nav-links ul li a {
+            font-family: var(--title-font);
+        }
+
+        header {
+            height: 40vh;
+            width: 100%;
+            background: url('/static/ingenious/img/clarisse-meyer-jKU2NneZAbI-unsplash.jpg');
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+
+        header .wrapper{
+            height: 100%;
+            width: 100%;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.661);
+        }
+
+        header h2{
+            font-family: var(--title-font), sans-serif;
+        }
+    
+        .item-list{
+            display: grid;
+            column-gap: 20px;
+            grid-template-columns: repeat(1, 1fr);
+        }
+
+        @media (min-width: 992px) {
+            .item-list{
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .item-list .item{
+            height: 60px;
+            background: var(--card-bg-color);
+            box-shadow: 0 5px 14px rgba(0,0,0,0.2);
+            border-radius: 10px 0;
+            margin: 20px 0;
+        }
+
+        .item-list .item a{
+            display: flex;
+            justify-content: space-between;
+            align-items; center;
+            padding: 20px;
+            font-family: var(--title-font), sans-serif;
+            text-transform: uppercase;
+            color: var(--card-font-color);
+        }
+
+        .item-list .item:hover a{
+            color: rgb(133, 133, 133);
+        }
+
+        .item-list .item h3{
+            {% comment %} margin-bottom: 30px; {% endcomment %}
+        }
+
+        .item-list .item .details {
+            font-family: var(--title-font), sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+        }
+
+        .item-list .item .details i{
+            background: var(--card-font-color);
+            color: var(--card-bg-color);
+            height: 25px;
+            width: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 50%;
+            margin-right: 10px;
+        }
+
+        .item-list .item span{
+            font-family: 'Abel', sans-serif;
+            background: var(--bg-color);
+            color: var(--card-color);
+            border-radius: 30px;
+            padding: 0 10px;
+        }
+
+        .item-list .item span.open{
+            color: rgb(0, 128, 0);
+            border-color: rgb(0, 128, 0);
+        }
+
+        .item-list .item span.closed{
+            color: rgb(255, 0, 0);
+            border-color: rgb(255, 0, 0);
+        }
+
+        @media (max-width: 768px) {
+            .xs-hidden {
+                display: none !important;
+            }
+        }
+        .main-content{
+            height: 100vh;
+            padding: 10px;
+        }
+        .sub-main-content{
+            width:100%;
+            display: grid;
+            grid-template-columns: 4.5fr 1.55fr;
+            grid-column-gap: 10px;
+            padding: 0 0 0 30px;
+        }
+        .left-side{
+            
+        }
+        .right-side{
+            padding: 0 30px 10px 10px;
+            
+        }
+        .category-items{
+            display: flex;
+            flex-direction:column;
+            gap: 10px;
+        }
+        .category-item{
+            border-bottom: 1px solid gray;
+            padding: 10px 15px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="big-container" style="padding: 0; ">
+        <header>
+            <!-- navbar -->
+            <nav>
+                <!-- <div class="bg">
+                    <img src="static/kitukizuri/img/ingenious-bg.png" alt="" />
+                </div> -->
+                <a href="{% url 'aid:scholarship-categories'%}" class="logo" style="background: white; z-index: 99999; margin-left: 30px;">
+                    <img src="scholarship/static/ingenious/img/logo.png" alt="">
+                </a>
+                <div class="fas menu-toggle"></div>
+                <div class="nav-links">
+                <ul>
+                    <li><a href="/">HOME</a></li>
+                    {% comment %} <li><a href="/about">ABOUT</a></li> {% endcomment %}
+                    <li><a href="{% url 'profile'%}">PROFILE</a></li>
+<!--                    <li><a href="#">CONTACT</a></li>-->
+                </ul>
+                <input type="checkbox" id="theme-switch">
+                <label for="theme-switch" class="switch">
+                    <div class="toggle"></div>
+                    <div class="names">
+                        <p class="light">Light</p>
+                        <p class="dark">Dark</p>
+                    </div>
+                </label>
+                <!-- <a class="cta" href="/test/donate.html"><button>Donate</button></a> -->
+                </div>
+            </nav>
+            <!-- end of navbar -->
+            <div class="wrapper">
+                <div style="flex: 50%; display: flex; justify-content: center;">
+                    <div style="border-radius: 10px; max-width: 600px;" class="xs-margin-top-10">
+                        <div style="padding: 30px; color: white; border-radius: 10px; position: relative; z-index: 1;">
+                            <div class="bg" style="opacity: 0.2">
+                                <img src="static/img/bg.png" style="object-fit: contain;" alt="">
+                            </div>
+                            <h2 style="color: #1DA1F1; margin-bottom: 10px;">WE ARE HERE TO HELP</h2>
+                            <p>Let's get this over with already. You are looking for help and we are lookinng to help.
+                                Great!
+                                So take a look down below for opportunties you would be interested in and... <br>
+                                APPLY for it.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="xs-hidden" style="flex: 50%;">
+
+                </div>
+            </div>
+        </header>
+    </div>
+    <div class="small-container">
+        <ul class="item-list">
+            {% for category in categories %}
+            <li class="item">
+                <a href="{% url 'aid:scholarship-categories-items' category.id %}">
+                    <h3>{{category.title}}</h3>
+                    <div class="details">
+                        <div>
+                            <span class="open">
+                                {{category.scholarship_set.all.count}}
+                            </span>
+                        </div>
+                    </div>
+                </a>
+            </li>
+            {% endfor %}
+            <li class="item">
+                <a href="{% url 'aid:scholarship-applications' %}">
+                    <h3>applications</h3>
+                </a>
+            </li>
+        </ul>
+    </div>
+    <div class="main-content">
+        <div class="sub-main-content">
+            <div class="left-side">
+               {% lorem 4 p random %}
+            </div>
+            <div class="right-side">
+                <div class="category-items">
+                    <div class="category-item">Library Service Portal</div>
+                    <div class="category-item">Student Management System</div>
+                    <div class="category-item">Games and Sports</div>
+                    <div class="category-item">Security & Safety Services</div>
+                    <div class="category-item">Students Welfare Authority (SWA)</div>
+                    <div class="category-item">University Health Services (UHS)</div>
+                </div>
+            </div>
+            </div
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+
+    <script src="{% static 'ingenious/js/main.js' %}"></script>
+    <script src="{% static 'ingenious/js/theme-switch.js' %}"></script>
+</body>
+</html>

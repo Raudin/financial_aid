@@ -1,0 +1,10 @@
+db.sqlite3
+/financial_venv
+/venv
+/env
+
+*__pycache__
+/media
+
+/docker
+Makefile
